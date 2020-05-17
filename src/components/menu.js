@@ -3,27 +3,16 @@ import styled from "styled-components"
 
 const menuData = [
   {
-    price: "$25.99",
-    name: "Grilled Beef with potatoes",
-    description: "Meat / Potatoes / Rice / Tomatoes",
-  },
-  {
-    price: "$25.99",
-    name: "Grilled Beef with potatoes",
-    description: "Meat / Potatoes / Rice / Tomatoes",
-  },
-  {
-    price: "$25.99",
-    name: "Grilled Beef with potatoes",
-    description: "Meat / Potatoes / Rice / Tomatoes",
-  },
-  {
-    price: "$25.99",
-    name: "Grilled Beef with potatoes",
-    description: "Meat / Potatoes / Rice / Tomatoes",
-  },
+    price: "",
+    name: "Comming Soon",
+    description: "We are preparing a great menu",
+  }
 ]
 const categories = [
+  {
+    title: "Starters",
+    items: menuData,
+  },
   {
     title: "Main",
     items: menuData,

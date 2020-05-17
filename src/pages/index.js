@@ -57,8 +57,10 @@ const IndexPage = props => {
         <AboutSection>
           <div className="text-section">
             <h3>Welcome to Picholine</h3>
-            <h2>Authenthic taste of Vietnam in Herndon</h2>
-            <p> When Italian roots meet Spanish Flavours and love to deliver great taste of mediterranean culture.</p>
+            <h2>Mediterranean food</h2>
+            <p>
+              When Italian roots meet Spanish Flavours and love to deliver great taste of mediterranean culture.
+            </p>
           </div>
           <div className="img-div">
             <img src={paellaMarisco}></img>
