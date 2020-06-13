@@ -32,7 +32,6 @@ const MenuPage = styled.div`
 const Menu = ({ data: { gcms, dataJson: { menu } } }) => {
   const { menus } = gcms;
   const { title, description, typesList } = menus[0];
-  console.log(menu);
   return (
     <Layout>
       <MenuPage>

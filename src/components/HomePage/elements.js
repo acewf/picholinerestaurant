@@ -74,13 +74,14 @@ export const Link = styled.a`
 `;
 
 export const InfoContainer = styled(Box)`
-  padding: 40px 16px;
+  padding: 10px 10px;
   color: #fff;
   background-color: #302939;
   text-align: center;
   @media (min-width: 1025px) {
     display: flex;
     justify-content: space-around;
+    padding: 40px 16px;
   }
   z-index:2;
 `;
@@ -90,7 +91,7 @@ const FontAwesome = styled(FontAwesomeIcon)`
 `;
 
 export const InfoItem = ({ icon, title, children }) => (
-  <Box>
+  <Box my={1}>
     <FontAwesome icon={icon} />
     <Heading as="h3" m={2}>{title}</Heading>
     <Paragraph>{children}</Paragraph>
