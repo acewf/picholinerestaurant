@@ -85,9 +85,13 @@ export const InfoContainer = styled(Box)`
   z-index:2;
 `;
 
+const FontAwesome = styled(FontAwesomeIcon)`
+  max-height:50px;
+`;
+
 export const InfoItem = ({ icon, title, children }) => (
   <Box>
-    <FontAwesomeIcon icon={icon} />
+    <FontAwesome icon={icon} />
     <Heading as="h3" m={2}>{title}</Heading>
     <Paragraph>{children}</Paragraph>
   </Box>
