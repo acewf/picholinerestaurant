@@ -14,4 +14,4 @@ collections:
       fields:
         - { label: 'Landing Heading', name: landingHeading, widget: string }
         - { label: 'Landing subtext', name: 'landingSubtext', widget: string }
-  
+

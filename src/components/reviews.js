@@ -1,9 +1,8 @@
-import React from "react"
-import styled from "styled-components"
-import Slider from "react-slick"
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
-import aboutCoverImage from "../images/about-cover.jpg"
+import React from 'react';
+import styled from '@emotion/styled';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const settings = {
   dots: true,
@@ -13,26 +12,25 @@ const settings = {
   slidesToScroll: 1,
   fade: true,
   autoPlay: true,
-  arrows: false,
-  dots: true,
-}
+  arrows: false
+};
 
 const reviewsData = [
   {
     review:
       "Friendly staff, and a wide array of menu options. Food is great and I'm glad that the staff here is welcoming.",
-    reviewer: "Will",
+    reviewer: 'Will'
   },
   {
     review:
-      "The place is pristine, we ordered from all over the menu and everything was great, even the line in the water",
-    reviewer: "Matt",
-  },
-]
+      'The place is pristine, we ordered from all over the menu and everything was great, even the line in the water',
+    reviewer: 'Matt'
+  }
+];
 
 const ReviewsStyles = styled.div`
   background: linear-gradient(rgba(48, 48, 48, 0.8), rgba(48, 48, 48, 0.8)),
-    url(${aboutCoverImage});
+  /*  url(${aboutCoverImage}); */
   background-position: center;
   background-size: cover;
   color: #fff;
@@ -59,27 +57,30 @@ const ReviewsStyles = styled.div`
       color: #fff;
     }
   }
-`
-const Reviews = () => {
-  return (
-    <ReviewsStyles>
-      <h2>What Our Customers Say</h2>
-      <div className="slider-contaner">
-        <Slider {...settings}>
-          {reviewsData.map((review, index) => {
-            return (
-              <div className="review-slide" key={index}>
-                <blockquote>
-                  <p>"{review.review}"</p>
-                  <span>- {review.reviewer} </span>
-                </blockquote>
-              </div>
-            )
-          })}
-        </Slider>
-      </div>
-    </ReviewsStyles>
-  )
-}
+`;
+const Reviews = () => (
+  <ReviewsStyles>
+    <h2>What Our Customers Say</h2>
+    <div className="slider-contaner">
+      <Slider {...settings}>
+        {reviewsData.map((review, index) => (
+          <div className="review-slide" key={index}>
+            <blockquote>
+              <p>
+                "
+                {review.review}
+                "
+              </p>
+              <span>
+                -
+                {review.reviewer}
+              </span>
+            </blockquote>
+          </div>
+        ))}
+      </Slider>
+    </div>
+  </ReviewsStyles>
+);
 
-export default Reviews
+export default Reviews;

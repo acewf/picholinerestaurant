@@ -1,20 +1,19 @@
-import styled from "styled-components"
+import styled from '@emotion/styled';
 
 export const PageCover = styled.div`
-  height: 400px;
+  height: 500px;
   max-height: 100%;
+  overflow: hidden;
+  position: relative;
   ::before {
     content: "";
     z-index: 100;
     position: absolute;
     top: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    height: 400px;
-    width: 100%;
-  }
-  .page-cover-img {
-    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
     height: 100%;
-    object-fit: cover;
+    width: 100%;
   }
-`
+`;
+
+export default PageCover;

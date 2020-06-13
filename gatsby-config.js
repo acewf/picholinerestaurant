@@ -1,54 +1,59 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: 'Picholine Restaurant',
+    description: 'Take your tastebuds on a Mediterranean fling no matter what the time of year with favourites including fish and roasted veg.',
+    keywords: ['Mediterranean', 'Restaurant', 'Food', 'Holloway', 'London', 'Paella'],
+    location: 'https://www.google.com/maps/place/Picholine+Restaurant/@51.559369,-0.12041,21z/data=!4m5!3m4!1s0x0:0x4112b422414baffb!8m2!3d51.5594037!4d-0.120395?hl=en-GB',
+    author: '@acewf'
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
+    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/content`,
-        name: 'pages',
-      },
+        name: 'images',
+        path: `${__dirname}/data`
+      }
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    `gatsby-plugin-styled-components`,
-    `gatsby-transformer-remark`,
+    'gatsby-transformer-json',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-emotion',
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-      },
+        name: 'Picholine Restaurant',
+        short_name: 'Picholine',
+        start_url: '/',
+        background_color: '#663399',
+        theme_color: '#663399',
+        display: 'minimal-ui',
+        icon: 'data/images/gatsby-icon.png' // This path is relative to the root of the site.
+      }
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: 'gatsby-plugin-google-fonts',
       options: {
         fonts: [
-          `Lora`,
-          `Poppins`
+          'Lora',
+          'Poppins'
         ],
         display: 'swap'
       }
     },
-    `gatsby-plugin-netlify-cms`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
-  ],
-}
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'GCMS',
+        fieldName: 'gcms',
+        url: 'https://api-eu-central-1.graphcms.com/v2/ckawwii4809yh01yx7lzl076f/master'
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-19969281-6'
+      }
+    }
+  ]
+};

@@ -1,8 +1,12 @@
-import React from "react"
-import MenuComponent from "../components/menu"
-import Layout from "../components/layout"
-import menuCover from "../images/menucover.jpg"
-import styled from "styled-components"
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from '@emotion/styled';
+import { graphql } from 'gatsby';
+import MenuComponent from '../components/Menu';
+import Layout from '../components/layout';
+import { PageCover } from '../components/shared-styles';
+import { Box } from '../components/Shared/Tags';
+import Image from '../components/Image';
 
 const MenuPage = styled.div`
   .menu-cover {
@@ -23,18 +27,81 @@ const MenuPage = styled.div`
       object-fit: cover;
     }
   }
-`
-const Menu = () => {
+`;
+
+const Menu = ({ data: { gcms, dataJson: { menu } } }) => {
+  const { menus } = gcms;
+  const { title, description, typesList } = menus[0];
+  console.log(menu);
   return (
     <Layout>
       <MenuPage>
-        <section className="menu-cover">
-          <img alt="table with food" className="menu-cover-img" src={menuCover}></img>
-        </section>
-        <MenuComponent />
+        <PageCover>
+          <Box height="100%">
+            <Image
+              width="100%"
+              height="100%"
+              objectFit="cover"
+              objectPosition="50% 50%"
+              alt="table with food"
+              data={menu}
+            />
+          </Box>
+        </PageCover>
+        <MenuComponent
+          title={title}
+          description={description}
+          dishByType={typesList}
+        />
       </MenuPage>
     </Layout>
-  )
-}
+  );
+};
 
-export default Menu
+Menu.propTypes = {
+  data: PropTypes.object
+};
+
+Menu.defaultProps = {
+  data: {
+    gcms: {
+      menus: []
+    }
+  }
+};
+
+export default Menu;
+
+export const query = graphql`
+  query{
+    dataJson {
+      menu {
+        childImageSharp {
+          fluid(maxWidth: 1000,maxHeight:500, quality: 100, cropFocus: CENTER) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+    gcms {
+      menus(first: 1) {
+        title
+        description
+        typesList {
+          name
+          id
+          foodInfo {
+            dishName
+            dishView {
+              url
+              id
+            }
+            price
+            id
+            description
+          }
+        }
+      }
+    }
+  }
+`;

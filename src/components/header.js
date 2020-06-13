@@ -1,10 +1,9 @@
-import PropTypes from "prop-types"
-import React, { useState, Fragment } from "react"
-import styled from "styled-components"
-import { ReactSVG } from "react-svg"
-import { Link } from "gatsby"
+import PropTypes from 'prop-types';
+import React, { useState, Fragment } from 'react';
+import styled from '@emotion/styled';
+import { Link } from 'gatsby';
 
-import HamburgerIcon from "../images/hamburger.svg"
+import HamburgerIcon from '../../data/images/hamburger.svg';
 
 const HeaderStyles = styled.header`
   min-width: 100%;
@@ -21,7 +20,7 @@ const HeaderStyles = styled.header`
     color: #fff;
     text-decoration: none;
   }
-`
+`;
 
 const HeaderMenuStyles = styled.div`
   position: fixed;
@@ -34,8 +33,8 @@ const HeaderMenuStyles = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  visibility: ${props => (props.open ? "visible" : "hidden")};
-  opacity: ${props => (props.open ? 1 : 0)};
+  visibility: ${(props) => (props.open ? 'visible' : 'hidden')};
+  opacity: ${(props) => (props.open ? 1 : 0)};
   transition: visibility 0.5s, opacity 0.5s linear;
 
   .close-btn {
@@ -60,9 +59,9 @@ const HeaderMenuStyles = styled.div`
       }
     }
   }
-`
+`;
 const Header = ({ siteTitle }) => {
-  const [menuToggle, setMenuToggle] = useState(false)
+  const [menuToggle, setMenuToggle] = useState(false);
 
   return (
     <Fragment>
@@ -70,13 +69,17 @@ const Header = ({ siteTitle }) => {
         <Link to="/">
           <h4>Picholine</h4>
         </Link>
-        <img
-          src={HamburgerIcon}
-          onClick={() => {
-            console.log(menuToggle, "this")
-            setMenuToggle(!menuToggle)
-          }}
-        ></img>
+        <div onClick={() => {
+          console.log(menuToggle, 'this');
+          setMenuToggle(!menuToggle);
+        }}
+        >
+          <img
+            src={HamburgerIcon}
+
+            alt=""
+          />
+        </div>
       </HeaderStyles>
 
       <HeaderMenu
@@ -84,42 +87,40 @@ const Header = ({ siteTitle }) => {
         open={menuToggle}
       />
     </Fragment>
-  )
-}
+  );
+};
 
-var HeaderMenu = props => {
+const HeaderMenu = (props) => {
   const navMenuItems = [
-    { text: "Home", link: "/" },
-    { text: "Menu", link: "/menu" },
+    { text: 'Home', link: '/' },
+    { text: 'Menu', link: '/menu' },
     {
-      text: "About",
-      link: "/about",
-    },
-  ]
+      text: 'About',
+      link: '/about'
+    }
+  ];
   return (
     <HeaderMenuStyles open={props.open}>
       <h2 className="close-btn" onClick={props.onClose}>
         X
       </h2>
       <ul>
-        {navMenuItems.map((menuItem, index) => {
-          return (
-            <li onClick={props.onClose} key={index}>
-              <Link to={menuItem.link}>{menuItem.text}</Link>
-            </li>
-          )
-        })}
+        {navMenuItems.map((menuItem, index) => (
+          <li onClick={props.onClose} key={index}>
+            <Link to={menuItem.link}>{menuItem.text}</Link>
+          </li>
+        ))}
       </ul>
     </HeaderMenuStyles>
-  )
-}
+  );
+};
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+  siteTitle: PropTypes.string
+};
 
 Header.defaultProps = {
-  siteTitle: ``,
-}
+  siteTitle: ''
+};
 
-export default Header
+export default Header;
