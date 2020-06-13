@@ -1,9 +1,12 @@
 import styled from '@emotion/styled';
 
 export const PageCover = styled.div`
-  height: 500px;
+
   max-height: 100%;
   overflow: hidden;
+  @media (min-width: 1025px) {
+    height: 500px;
+  }
   position: relative;
   ::before {
     content: "";

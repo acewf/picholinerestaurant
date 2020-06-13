@@ -5,7 +5,12 @@ export const MembersContainer = styled.div`
   ${space};
   display:flex;
   justify-content: space-evenly;
+  align-items: center;
   text-align: center;
+  flex-direction: column;
+  @media (min-width: 900px) {
+    flex-direction: row;
+  }
 `;
 
 export const StaffSection = styled.section`

@@ -2,8 +2,11 @@ import styled from '@emotion/styled';
 import { Li } from '../Shared/Tags';
 
 export const MenuStyles = styled.div`
-  padding-top: 40px;
+  padding: 10px;
   color: #404044;
+  @media (min-width: 725px) {
+    padding-top: 40px;
+  }
 `;
 
 export const StyledLi = styled(Li)`
