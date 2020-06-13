@@ -1,12 +1,12 @@
-import React from "react"
-import styled from "styled-components"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import React from 'react';
+import styled from '@emotion/styled';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebook,
   faInstagram,
   faTwitter,
-  faYelp,
-} from "@fortawesome/free-brands-svg-icons"
+  faYelp
+} from '@fortawesome/free-brands-svg-icons';
 
 const FooterStyles = styled.footer`
   min-width: 100%;
@@ -33,31 +33,23 @@ const FooterStyles = styled.footer`
       }
     }
   }
-`
-const Footer = () => {
-  return (
-    <FooterStyles>
-      <div className="social-media">
-        <ul>
-          <li>
-            <FontAwesomeIcon size="2x" icon={faYelp} />
-          </li>
-          <li>
-            <FontAwesomeIcon size="2x" icon={faFacebook} />
-          </li>
-          <li>
-            <FontAwesomeIcon size="2x" icon={faInstagram} />
-          </li>
-          <li>
-            <FontAwesomeIcon size="2x" icon={faTwitter} />
-          </li>
-        </ul>
-      </div>
-      © {new Date().getFullYear()}, Built by
-      {` `}
-      <a href="https://kwao.io">Kwao</a>
-    </FooterStyles>
-  )
-}
+`;
+const Footer = () => (
+  <FooterStyles>
+    <div className="social-media">
+      <ul>
+        <li>
+          <FontAwesomeIcon size="2x" icon={faFacebook} />
+        </li>
+        <li>
+          <FontAwesomeIcon size="2x" icon={faInstagram} />
+        </li>
+        <li>
+          <FontAwesomeIcon size="2x" icon={faTwitter} />
+        </li>
+      </ul>
+    </div>
+  </FooterStyles>
+);
 
-export default Footer
+export default Footer;
