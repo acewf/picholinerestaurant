@@ -7,6 +7,8 @@ import {
   faTwitter,
   faYelp
 } from '@fortawesome/free-brands-svg-icons';
+import { useStaticQuery, graphql } from 'gatsby';
+import { Link } from './Shared/Tags';
 
 const FooterStyles = styled.footer`
   min-width: 100%;
@@ -34,22 +36,34 @@ const FooterStyles = styled.footer`
     }
   }
 `;
-const Footer = () => (
-  <FooterStyles>
-    <div className="social-media">
-      <ul>
-        <li>
-          <FontAwesomeIcon size="2x" icon={faFacebook} />
-        </li>
-        <li>
-          <FontAwesomeIcon size="2x" icon={faInstagram} />
-        </li>
-        <li>
-          <FontAwesomeIcon size="2x" icon={faTwitter} />
-        </li>
-      </ul>
-    </div>
-  </FooterStyles>
-);
+const Footer = () => {
+  const { site: { siteMetadata } } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          instagram
+        }
+      }
+    }
+  `);
+  const { instagram } = siteMetadata;
+
+  return (
+    <FooterStyles>
+      <div className="social-media">
+        <ul>
+          <li>
+            <FontAwesomeIcon size="2x" icon={faFacebook} />
+          </li>
+          <li>
+            <Link href={instagram} target="_blank">
+              <FontAwesomeIcon size="2x" icon={faInstagram} />
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </FooterStyles>
+  );
+};
 
 export default Footer;

@@ -4,6 +4,7 @@ module.exports = {
     description: 'Take your tastebuds on a Mediterranean fling no matter what the time of year with favourites including fish and roasted veg.',
     keywords: ['Mediterranean', 'Restaurant', 'Food', 'Holloway', 'London', 'Paella'],
     location: 'https://www.google.com/maps/place/Picholine+Restaurant/@51.559369,-0.12041,21z/data=!4m5!3m4!1s0x0:0x4112b422414baffb!8m2!3d51.5594037!4d-0.120395?hl=en-GB',
+    instagram: 'https://instagram.com/picholine_restaurant?igshid=15zrrwqlps58k',
     author: '@acewf'
   },
   plugins: [
