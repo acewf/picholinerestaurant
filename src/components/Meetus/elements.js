@@ -13,7 +13,7 @@ export const MembersContainer = styled.div`
   }
 `;
 
-export const StaffSection = styled.section`
+export const Section = styled.section`
   ${space};
 `;
 
@@ -29,6 +29,5 @@ export const MemberWrapper = styled.div`
 
 export const ImgWrapper = styled.div`
   ${space};
-  clip-path: circle(43% at 50% 50%);
   max-height: 460px;
 `;
