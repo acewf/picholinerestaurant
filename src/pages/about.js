@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import { Heading } from '../components/Shared/Heading';
 import HtmlContent from '../components/Shared/HtmlContent';
-import Staff from '../components/Staff';
+import Meetus from '../components/Meetus';
 import { PageCover } from '../components/shared-styles';
 import Image from '../components/Image';
 import { PageContainer, AboutSection } from '../components/AboutPage/elements';
@@ -37,7 +37,7 @@ const About = ({ data }) => {
             <Image alt="" src={imageDescription.url} />
           </Box>
         </AboutSection>
-        <Staff teamMembers={staffList} />
+        <Meetus images={staffList} />
       </PageContainer>
     </Layout>
   );
@@ -80,8 +80,6 @@ export const query = graphql`
         id
         staffList {
           id
-          name
-          jobTitle
           image {
             url
           }
