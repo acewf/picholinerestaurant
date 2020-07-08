@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import styled from '@emotion/styled';
 import Layout from '../components/layout';
 import { Heading } from '../components/Shared/Heading';
 import HtmlContent from '../components/Shared/HtmlContent';
@@ -9,6 +10,10 @@ import { PageCover } from '../components/shared-styles';
 import Image from '../components/Image';
 import { PageContainer, AboutSection } from '../components/AboutPage/elements';
 import { Box } from '../components/Shared/Tags';
+
+export const CustomBox = styled(Box)`
+  overflow:hidden;
+`;
 
 const About = ({ data }) => {
   const { gcms: { abouts }, dataJson: { about } } = data;
@@ -33,9 +38,9 @@ const About = ({ data }) => {
             <Heading as="h3" mb={30}>{title}</Heading>
             <HtmlContent dangerouslySetInnerHTML={{ __html: description.html }} />
           </Box>
-          <Box>
+          <CustomBox>
             <Image alt="" src={imageDescription.url} />
-          </Box>
+          </CustomBox>
         </AboutSection>
         <Meetus images={staffList} />
       </PageContainer>
@@ -81,7 +86,7 @@ export const query = graphql`
         staffList {
           id
           image {
-            url
+            url(transformation: {image: {resize: {fit: crop, height: 300, width: 360}}})
           }
         }
       }
