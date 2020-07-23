@@ -48,6 +48,7 @@ export const ItemsContainer = styled.div`
   @media (min-width: 1025px) {
     display: grid;
     grid-template-columns: 50% 50%;
+    grid-column-gap: 20px;
   }
 `;
 
