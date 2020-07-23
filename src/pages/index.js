@@ -82,6 +82,7 @@ const IndexPage = ({ data: { gcms, site } }) => {
             position="relative"
             zIndex="2"
             maxWidth="550px"
+            py="50px"
           >
             <Heading as="h2">{landingTitle}</Heading>
             <Paragraph m={2}>{landingDescription}</Paragraph>
