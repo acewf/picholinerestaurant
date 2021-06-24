@@ -30,13 +30,14 @@ export const ActionButton = styled.button`
   font-family: "Lora", Georgia, serif;
   text-transform: uppercase;
   padding: 18px 36px;
+  cursor: pointer;
 `;
 
 export const Container = styled(Flex)`
-  position:relative;
+  position: relative;
   text-align: center;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
@@ -45,32 +46,32 @@ export const Container = styled(Flex)`
   color: #fff;
 
   &::after,
-  &::before{
-    content:'';
-    position:absolute;
-    z-index:1;
-    width:100%;
-    height:100%;
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
     background-position: top center;
     background-size: cover;
     background-repeat: no-repeat;
-    filter:brightness(0.5);
+    filter: brightness(0.5);
   }
 
-  &::before{
-    background-image:url(${({ previousBkg }) => previousBkg});
+  &::before {
+    background-image: url(${({ previousBkg }) => previousBkg});
   }
 
-  &::after{
-    background-image:url(${({ bkg }) => bkg});
+  &::after {
+    background-image: url(${({ bkg }) => bkg});
     animation: 1s ease forwards;
     animation-name: ${({ animationName }) => animationName};
   }
 `;
 
 export const Link = styled.a`
-  text-decoration:none;
-  color:inherit;
+  text-decoration: none;
+  color: inherit;
 `;
 
 export const InfoContainer = styled(Box)`
@@ -83,17 +84,19 @@ export const InfoContainer = styled(Box)`
     justify-content: space-around;
     padding: 40px 16px;
   }
-  z-index:2;
+  z-index: 2;
 `;
 
 const FontAwesome = styled(FontAwesomeIcon)`
-  max-height:50px;
+  max-height: 50px;
 `;
 
 export const InfoItem = ({ icon, title, children }) => (
   <Box my={1}>
     <FontAwesome icon={icon} />
-    <Heading as="h3" m={2}>{title}</Heading>
+    <Heading as="h3" m={2}>
+      {title}
+    </Heading>
     <Paragraph>{children}</Paragraph>
   </Box>
 );

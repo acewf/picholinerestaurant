@@ -51,6 +51,7 @@ const Menu = ({ data: { gcms, dataJson: { menu } } }) => {
           title={title}
           description={description}
           dishByType={typesList}
+          route="menu"
         />
       </MenuPage>
     </Layout>

@@ -73,6 +73,7 @@ const IndexPage = ({ data: { gcms, site } }) => {
   }, []);
   const currentImg = background[count % (background.length)].url;
   const previousImg = background[lastCount % (background.length)].url;
+
   return (
     <Layout>
       <SEO />
@@ -89,6 +90,12 @@ const IndexPage = ({ data: { gcms, site } }) => {
             <Link to="/menu">
               <ActionButton>View our menu</ActionButton>
             </Link>
+            <Box my={20}>
+              <ExternalLink href="#quandoo-booking-widget">
+                <ActionButton>Book Now</ActionButton>
+              </ExternalLink>
+            </Box>
+
           </StyledFlex>
           <InfoContainer width={1}>
             <InfoItem icon={faMapMarkerAlt} title="Address">
@@ -124,6 +131,7 @@ const IndexPage = ({ data: { gcms, site } }) => {
           title={title}
           description={description}
           dishByType={typesList}
+          route="homepage"
         />
       </Box>
     </Layout>
