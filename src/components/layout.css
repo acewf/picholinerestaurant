@@ -208,6 +208,10 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
+  display: flex;
+}
+#___gatsby{
+  width: 100%;
 }
 img {
   max-width: 100%;
