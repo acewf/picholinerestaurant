@@ -8,7 +8,7 @@ import {
   Price, Name, Description, StyledLi
 } from './elements';
 
-const lastRoute = 'homepage';
+let lastRoute;
 const scriptSrc = 'https://booking-widget.quandoo.com/index.js';
 
 const MenuComponent = ({ title, description, dishByType, route }) => {
@@ -59,6 +59,7 @@ const MenuComponent = ({ title, description, dishByType, route }) => {
       <Helmet>
         <script
           src={loadSrc}
+          defer
           data-agent-id="146"
           data-merchant-id="89308"
         />
