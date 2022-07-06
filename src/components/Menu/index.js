@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
 import { Heading } from '../Shared/Heading';
-import { Paragraph, Box, Ul, Flex } from '../Shared/Tags';
+import { Paragraph, Box, Ul, Flex, iFrame } from '../Shared/Tags';
 import {
   MenuStyles, ItemsContainer, Tab,
   Price, Name, Description, StyledLi
 } from './elements';
 
 let lastRoute;
-const scriptSrc = 'https://booking-widget.quandoo.com/index.js';
 
 const MenuComponent = ({ title, description, dishByType, route }) => {
   const isDiff = lastRoute !== route;
   const [categoryIndex, setCategoryIndex] = useState(0);
   const currentCategory = dishByType[categoryIndex];
-
-  const loadSrc = isDiff ? `${scriptSrc}?path=${route}` : scriptSrc;
 
 
   return (
@@ -49,21 +45,11 @@ const MenuComponent = ({ title, description, dishByType, route }) => {
           ))}
         </ItemsContainer>
       </MenuStyles>
-      <Box
-        id="quandoo-booking-widget"
-        marginTop={50}
-        marginX={50}
-        width={300}
-        maxHeight={805}
+      <iFrame
+        src="https://booking.favouritetable.com/?SiteCode=1726"
+        id="booking-widget"
+        style={{ border: 'none', minHeight: '760px' }}
       />
-      <Helmet>
-        <script
-          src={loadSrc}
-          defer
-          data-agent-id="146"
-          data-merchant-id="89308"
-        />
-      </Helmet>
     </Flex>
   );
 };
