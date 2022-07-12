@@ -91,7 +91,7 @@ const IndexPage = ({ data: { gcms, site } }) => {
               <ActionButton>View our menu</ActionButton>
             </Link>
             <Box my={20}>
-              <ExternalLink href="#quandoo-booking-widget">
+              <ExternalLink href="#booking-widget">
                 <ActionButton>Book Now</ActionButton>
               </ExternalLink>
             </Box>
