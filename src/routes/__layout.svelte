@@ -23,13 +23,13 @@
 </div>
 <div class="relative">
   <span
-    class="bg-[url('/olive-branch.jpg')] w-[100px] h-[300px] md:w-[220px] md:h-[600px] bg-no-repeat bg-contain absolute top-[150px] grayscale -right-10 opacity-40"
+    class="bg-[url('/olive-branch.jpg')] w-[100px] h-[300px] md:w-[220px] md:h-[600px] bg-no-repeat bg-contain absolute top-[150px] grayscale right-0 md:-right-10 opacity-40"
   />
   <span
     class="bg-[url('/olive-tree.png')] w-[200px] h-[150px] md:w-[400px] md:h-[300px] bg-no-repeat bg-contain absolute bottom-0 opacity-10 -scale-x-100"
   />
   <div class="w-full h-full relative z-10">
-    <div class="max-w-7xl mx-auto p-2 w-full text-olive">
+    <div class="max-w-7xl mx-auto p-2 w-full text-chalet-green">
       <div class="relative">
         <slot />
       </div>

@@ -1,0 +1,72 @@
+query {
+  homepage(where: {id: "ckb57lco01zns0199gz2zdtx3"}) {
+    title
+    background {
+      url(transformation: {image: {resize: {fit: crop, width: 1920}}})
+      height
+      width
+    }
+  }
+
+  about(where: {id: "ckawz74kw263101507au1tnm1"}) {
+    description {
+        html
+    }
+    imageDescription {
+      url
+    }
+    phone
+    email
+    mobile
+    address
+    openHours
+  }
+
+  menu(where: {id: "ckayfrgt42xa00150mejscmj3"}) {
+    title
+    description
+    typesList {
+      name
+      id
+      foodInfo {
+        dishName
+        dishView {
+          url
+          id
+        }
+        price
+        id
+        description
+      }
+    }
+  }
+
+  takeAways {
+    image {
+      url
+      width
+    }
+    url
+    alt
+  }
+
+  meatDishes: foods(where: {ingredients_contains_some: Meat}, last: 3) {
+    dishName
+    ingredients
+    price
+    description
+    dishView {
+      url(transformation: {image: {resize: {width: 300, fit: clip}}})
+    }
+  }
+
+  seaFoodDishes: foods(where: {ingredients_contains_some: SeaFood}, last: 3) {
+    dishName
+    ingredients
+    price
+    description
+    dishView {
+      url(transformation: {image: {resize: {width: 300, fit: clip}}})
+    }
+  }
+}
