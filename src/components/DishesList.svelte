@@ -2,10 +2,10 @@
   export let items;
 </script>
 
-<div class="flex flex-row w-full">
+<div class="flex flex-col md:flex-row w-full">
   {#each items as item}
     <div
-      class="w-full aspect-square overflow-hidden max-h-[200px] mx-2 flex border rounded-lg shadow-md relative"
+      class="w-full aspect-square overflow-hidden max-h-[240px] md:max-h-[200px] my-2 md:m-2 flex border rounded-lg shadow-md relative"
     >
       <img
         class="w-full m-auto"

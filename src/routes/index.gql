@@ -8,7 +8,7 @@ query {
     }
   }
 
-  about(where: {id: "ckawz74kw263101507au1tnm1"}) {
+  contact: about(where: {id: "ckawz74kw263101507au1tnm1"}) {
     description {
         html
     }
@@ -22,23 +22,35 @@ query {
     openHours
   }
 
+  drinksMenu: foodTypes(where: {type: drinks}) {
+    id
+    name
+    foodInfo {
+      dishName
+      dishView {
+        url
+      }
+      price
+      description
+    }
+  }
+
+  foodMenu: foodTypes(where: {type_not: drinks}) {
+    id
+    name
+    foodInfo {
+      dishName
+      dishView {
+        url
+      }
+      price
+      description
+    }
+  }
+
   menu(where: {id: "ckayfrgt42xa00150mejscmj3"}) {
     title
     description
-    typesList {
-      name
-      id
-      foodInfo {
-        dishName
-        dishView {
-          url
-          id
-        }
-        price
-        id
-        description
-      }
-    }
   }
 
   takeAways {

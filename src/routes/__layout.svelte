@@ -12,7 +12,7 @@
     </a>
 
     <div class="flex flex-row w-full max-w-md justify-around">
-      <a class="mx-2" href="/">Home</a>
+      <a class="mx-2" href="/#home">Home</a>
       <a class="mx-2" href="/#menu">Menu</a>
       <a class="mx-2" href="/#contact">Contact</a>
     </div>

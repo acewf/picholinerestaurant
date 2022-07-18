@@ -13,8 +13,6 @@
 
     const data = await graphcms.request(gql, {}, requestHeaders);
 
-    //console.log("Data", data);
-
     return {
       props: {
         ...data,
@@ -24,25 +22,30 @@
 </script>
 
 <script>
+  import { onMount } from "svelte";
+  import { fade } from "svelte/transition";
+
+  import Fa from "svelte-fa";
+  import {
+    faMapMarkerAlt,
+    faClock,
+    faPhone,
+    faEnvelope,
+    faMobile,
+  } from "@fortawesome/free-solid-svg-icons";
+
   import Link from "../components/Link.svelte";
   import Section from "../components/Section.svelte";
   import SectionTitle from "../components/SectionTitle.svelte";
   import DishesList from "../components/DishesList.svelte";
   import Promo from "../components/Promo.svelte";
-  import { onMount } from "svelte";
-  import { fade } from "svelte/transition";
-
-  import {
-    Tab,
-    TabGroup,
-    TabList,
-    TabPanel,
-    TabPanels,
-  } from "@rgossiaux/svelte-headlessui";
+  import PriceList from "../components/PriceList.svelte";
 
   export let homepage;
-  export let about;
+  export let contact;
   export let menu;
+  export let drinksMenu;
+  export let foodMenu;
   export let seaFoodDishes;
   export let meatDishes;
   export let takeAways;
@@ -50,20 +53,16 @@
   let index = 0;
   const imageLoop = 1000 * 20;
 
-  console.log(menu.typesList[0].foodInfo);
-
   const updateHeroBkg = () => {
     index = (index + 1) % homepage.background.length;
   };
-
-  let selectedCategory = menu.typesList[0];
 
   onMount(() => {
     setTimeout(updateHeroBkg, imageLoop);
   });
 </script>
 
-<div class="h-96">
+<div class="h-96 scroll-m-20" id="home">
   <Section>
     {#each [homepage.background[index]] as heroBkg (index)}
       <span class="absolute -z-10 hidden md:block">
@@ -100,7 +99,7 @@
 
 <Section>
   <div
-    class="w-screen md:w-full relative z-10 shadow-xl bg-chalet-green-50/50 rounded-lg m-2 flex flex-col md:flex-row"
+    class="w-screen md:w-full relative z-10 bg-chalet-green-50/50 rounded-lg m-2 flex flex-col md:flex-row"
   >
     <Promo />
     <div class="">
@@ -144,43 +143,56 @@
     </Section>
   </div>
   <Section>
-    <div id="booking-widget" class="w-full my-6">
+    <div id="booking-widget" class="w-full mt-6">
       <SectionTitle>Book now</SectionTitle>
       <iframe
         src={import.meta.env.VITE_BOOKING}
-        class="h-[760px] md:h-[520px] w-full"
+        class="h-[720px] md:h-[520px] w-full"
         title="booking widget"
       />
     </div>
   </Section>
 
   <Section>
-    <div class="w-full my-6">
+    <div class="w-full my-6" id="menu">
       <SectionTitle>{menu.title}</SectionTitle>
-      <TabGroup>
-        <TabList class="flex p-1 space-x-1 bg-blue-900/20 rounded-xl">
-          {#each menu.typesList as item}
-            <Tab
-              class="w-full max-w-[220px] py-2.5 text-sm leading-5 font-medium rounded-lg focus:outline-none focus:ring-2 ring-offset-2 ring-offset-blue-400 ring-white ring-opacity-60 bg-white shadow"
-              >{item.name}</Tab
-            >
-          {/each}
-        </TabList>
-        <TabPanels>
-          {#each menu.typesList as item}
-            <TabPanel>
-              {#each item.foodInfo as dish}
-                <div class="w-1/2 relative p-2 inline-block">
-                  <span>{dish.dishName}</span>
-                  <span class="before:content-['£'] absolute right-2"
-                    >{dish.price?.toFixed(2)}</span
-                  >
-                </div>
-              {/each}
-            </TabPanel>
-          {/each}
-        </TabPanels>
-      </TabGroup>
+      <div class="">
+        <PriceList items={foodMenu} />
+      </div>
+      <div class="md:min-h-[260px]">
+        <PriceList items={drinksMenu} />
+      </div>
+    </div>
+  </Section>
+  <Section>
+    <div class="w-full my-6" id="contact">
+      <SectionTitle>Contact</SectionTitle>
+      <div class="text-md text-center">
+        <div class="flex w-full justify-evenly flex-col md:flex-row">
+          <div class="block max-w-sm m-1">
+            <Fa class="inline-block mr-1" icon={faClock} />
+            <span class="">{contact.openHours}</span>
+          </div>
+          <div class="block m-1">
+            <Fa class="inline-block mr-1" icon={faMapMarkerAlt} />
+            <span>{contact.address}</span>
+          </div>
+          <div class="block m-1">
+            <Fa class="inline-block mr-1" icon={faEnvelope} />
+            <span>{contact.email}</span>
+          </div>
+        </div>
+        <div class="flex w-full justify-around">
+          <div class="block m-1">
+            <Fa class="inline-block mr-1" icon={faPhone} />
+            <span>{contact.phone}</span>
+          </div>
+          <div class="block m-1">
+            <Fa class="inline-block mr-1" icon={faMobile} />
+            <span>{contact.mobile}</span>
+          </div>
+        </div>
+      </div>
     </div>
   </Section>
 </div>
