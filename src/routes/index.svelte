@@ -62,7 +62,7 @@
   });
 </script>
 
-<div class="h-96 scroll-m-20" id="home">
+<div class="h-96 scro" id="home">
   <Section>
     {#each [homepage.background[index]] as heroBkg (index)}
       <span class="absolute -z-10 hidden md:block">
