@@ -73,3 +73,7 @@ yarn-error.log
 .vscode/
 
 .svelte-kit/**
+.netlify/**
+.cache/**
+
+build
