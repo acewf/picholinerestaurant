@@ -14,7 +14,7 @@
     "babel-plugin-styled-components": "^1.10.6",
     "emotion-normalize": "^10.1.0",
     "emotion-theming": "^10.0.27",
-    "gatsby": "^2.18.12",
+    "gatsby": "^5.3.3",
     "gatsby-image": "^2.2.34",
     "gatsby-plugin-emotion": "^4.3.3",
     "gatsby-plugin-google-analytics": "^2.3.4",
@@ -42,7 +42,7 @@
   "devDependencies": {
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
     "prettier": "^1.19.1"
